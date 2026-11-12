@@ -1,0 +1,9 @@
+{
+  "pluginId": "neodex.networld",
+  "repo": "NDesumeur/neodex-plugin-networld",
+  "version": "1.0.0",
+  "sha256": "e144a58e2661a98f71c15d520f331288137379435d5cb9493169a2a1aadafb46",
+  "approvedAt": "2026-11-12T06:35:38.126Z",
+  "neobase": ">=4.0.0",
+  "signature": "VFUpCJv+t7PpJ6e4aoofw0doGLL707peIT+RpBp8VsdP7kvBXexpTH452ti3EDS7HX5AwF9lHoGGN/5pMvIYDw=="
+}
