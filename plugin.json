@@ -1,0 +1,27 @@
+{
+  "id": "neodex.networld",
+  "name": "NetWorld",
+  "version": "1.0.0",
+  "author": "NDesumeur",
+  "description": "La boîte à outils réseau, sans rien envoyer sur le réseau : calculateur de sous-réseaux IPv4 (réseau, masque, diffusion, plage de machines, binaire, type d'adresse), découpage d'un réseau selon le nombre de machines de chaque service (VLSM), IPv6 développée, compressée et son réseau, décomposition d'une adresse web, et un aide-mémoire des ports et des codes HTTP avec recherche.",
+  "icon": "icon.png",
+  "entry": "index.js",
+  "view": "networld",
+  "neobase": ">=4.0.0",
+  "type": "app",
+  "category": "Outils",
+  "mobile": true,
+  "compatibility": [
+    "windows",
+    "android",
+    "linux"
+  ],
+  "syncMode": "fusion",
+  "syncInfo": "Les dernières adresses et le découpage saisis.",
+  "system": false,
+  "dependencies": {},
+  "sdk": "2.1.0",
+  "permissions": [
+    "storage"
+  ]
+}
