@@ -3,21 +3,21 @@
 // et un aide-mémoire des ports et des codes HTTP, avec recherche.
 const CSS = `
 .nwTabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.nwTabs .btn,.nwRow .btn{width:auto;margin:0;padding:6px 12px}
+.nwTabs .btn,.nwRow .btn{width:auto;margin:0;padding:8px 14px;font-size:15px}
 .nwRow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}
 .nwRow .f{flex:1;min-width:0;margin:0}
-.nwIn{font:16px monospace!important}
-.nwOut{font:13px monospace;border-collapse:collapse;width:100%;margin-top:8px}
-.nwOut td,.nwOut th{padding:4px 8px;border-bottom:1px solid #241c40;text-align:left;vertical-align:top}
+.nwIn{font:18px monospace!important}
+.nwOut{font:16px monospace;border-collapse:collapse;width:100%;margin-top:8px}
+.nwOut td,.nwOut th{padding:6px 10px;border-bottom:1px solid #241c40;text-align:left;vertical-align:top}
 .nwOut th{color:var(--lilac);font-weight:normal;white-space:nowrap;width:1%}
 .nwOut td{color:#fff;word-break:break-all}
-.nwBits{font:13px monospace;letter-spacing:1px;word-break:break-all}
+.nwBits{font:16px monospace;letter-spacing:1px;word-break:break-all}
 .nwBits .n{color:#ff4fb0}.nwBits .h{color:#4fc3ff}
-.nwErr{color:#ffd34f;font-size:13px;min-height:18px;margin-top:4px}
-.nwBar{display:flex;height:26px;border:2px solid var(--line);margin-top:10px;background:#0b0816}
-.nwBar i{display:block;height:100%;border-right:2px solid #000;font:10px monospace;color:#000;overflow:hidden;white-space:nowrap;padding:6px 3px 0}
-.nwScroll{max-height:420px;overflow:auto}
-.nwHint{font-size:12px;color:var(--lilac);line-height:1.5;margin-top:8px}
+.nwErr{color:#ffd34f;font-size:15px;min-height:20px;margin-top:4px}
+.nwBar{display:flex;height:32px;border:2px solid var(--line);margin-top:10px;background:#0b0816}
+.nwBar i{display:block;height:100%;border-right:2px solid #000;font:13px monospace;color:#000;overflow:hidden;white-space:nowrap;padding:7px 4px 0}
+.nwScroll{max-height:max(420px,calc(100vh - 330px));overflow:auto}
+.nwHint{font-size:15px;color:var(--lilac);line-height:1.5;margin-top:8px}
 `;
 // ---------- IPv4 ----------
 const ip2n = s => { const p = s.trim().split('.'); if (p.length !== 4 || p.some(x => !/^[0-9]{1,3}$/.test(x) || +x > 255)) throw new Error('adresse IPv4 invalide'); return p.reduce((a, x) => a * 256 + +x, 0); };
@@ -77,7 +77,7 @@ export default async function (ctx) {
   let saveT = 0; const save = () => { clearTimeout(saveT); saveT = setTimeout(() => ctx.folder.write('networld', st).catch(() => {}), 400); };
   // ---------- l'interface ----------
   view.innerHTML = '';
-  const wrap = el('div', 'appWrap'), head = el('div', 'agHead'), tabs = el('div', 'nwTabs'), body = el('div', 'sysCard px');
+  const wrap = el('div', 'appWrap wide'), head = el('div', 'agHead'), tabs = el('div', 'nwTabs'), body = el('div', 'sysCard px');
   head.append(el('span', 'label', 'NetWorld · outils réseau')); wrap.append(head, tabs, body); view.append(wrap);
   const TABS = [['v4', 'Sous-réseau IPv4'], ['split', 'Découper un réseau'], ['v6', 'IPv6'], ['url', 'Adresse web'], ['ref', 'Ports et codes HTTP']];
   function drawTabs() { tabs.replaceChildren(...TABS.map(([k, t]) => { const b = el('button', 'btn px' + (st.tab === k ? ' main' : ''), t); b.dataset.tab = k; b.onclick = () => { st.tab = k; save(); drawTabs(); build(); }; return b; })); }

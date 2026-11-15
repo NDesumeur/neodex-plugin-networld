@@ -29,3 +29,5 @@ Une URL décomposée : protocole, utilisateur, hôte, port (ou celui par défaut
 ## Données
 
 Les dernières adresses et le dernier découpage sont gardés dans le dossier du plugin. Autorisation : `storage` seulement.
+
+

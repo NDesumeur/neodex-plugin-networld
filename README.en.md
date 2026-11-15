@@ -29,3 +29,5 @@ A URL broken down: protocol, user, host, port (or the default one), path, parame
 ## Data
 
 The last addresses and the last split are kept in the plugin folder. Permission: `storage` only.
+
+
